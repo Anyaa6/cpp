@@ -1,9 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/12 11:34:28 by abonnel           #+#    #+#             */
+/*   Updated: 2021/11/12 14:04:06 by abonnel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <string>
+#include <iostream>
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-    // Make it so the following code produces attacks with "crude spiked club" THEN "some
-    // other type of club", in both test cases:
-    {
+	{
         Weapon club = Weapon("crude spiked club");
         HumanA bob("Bob", club);
         bob.attack();
@@ -19,9 +34,3 @@ int main()
         jim.attack();
     }
 }
-
-// Make a Weapon class, that has a type string, and a getType method that returns a
-// const reference to this string. It also has a setType, of course!
-
-// an attack() function that displays:
-// NAME attacks with his WEAPON_TYPE

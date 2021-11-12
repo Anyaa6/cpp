@@ -3,33 +3,39 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
+#    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/10 18:01:09 by ariane           ###   ########.fr        #
+#    Updated: 2021/11/12 13:58:43 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= zombies
-FLAGS		= -Werror -Wall -Wextra -std=c++98
+SRCS	= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-SRC 		= main.cpp Weapon.cpp Weapon.hpp HumanA.cpp HumanA.hpp HumanB.cpp \
-			HumanB.hpp
-			
-OBJ 		= $(SRC:.cpp=.o)
+OBJS	= $(SRCS:.cpp=.o)
 
-%.o: %.c
-	clang++ $(FLAGS) $@ -c $< -I.
+NAME	= violence
 
-$(NAME): $(OBJ)
-	clang++ $(FLAGS) $(OBJ) -o $(NAME)
+CC		= clang++
 
-all: $(NAME)
+RM		= rm -f
+
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
+
+.cpp.o:
+			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
+
+$(NAME):	$(OBJS)
+			$(CC) $(CFLAGS) $(SRCS) -I. -o $(NAME)
+
+all:		$(NAME)
 
 clean:
-	rm -f $(OBJ)
+			$(RM) $(OBJS)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re: fclean all
+re:			fclean all
+
+.PHONY:		all clean fclean re
