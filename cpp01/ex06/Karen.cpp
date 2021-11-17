@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 12:58:17 by abonnel           #+#    #+#             */
-/*   Updated: 2021/11/17 14:19:30 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/11/17 14:22:26 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,19 +50,16 @@ void Karen::_error( void )
 void Karen::complain( std::string level )
 {
 	std::string		levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int				log_level = -1;
-
-	for (int i = 0; i < 4; i++)
+	int				i;
+	
+	for (i = 0; i < 4; i++)
 	{
 		if (level == levels[i])
-		{	
-			log_level = i;
 			break;
-		}
 	}
-	switch (log_level)
+	switch (i)
 	{
-		case -1:
+		case 4:
 		{
 			std::cout << "[ Probably complaining about insignificant problems ]"\
 			<< std::endl;
