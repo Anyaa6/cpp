@@ -6,7 +6,7 @@
 #    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/12 14:06:23 by abonnel          ###   ########.fr        #
+#    Updated: 2021/11/17 12:51:24 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,7 @@ clean:
 
 fclean:		clean
 			$(RM) $(NAME)
+			$(RM) files/*.replace
 
 re:			fclean all
 

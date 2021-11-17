@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:06:52 by abonnel           #+#    #+#             */
-/*   Updated: 2021/11/17 12:44:05 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/11/17 12:49:51 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	check_if_replace_file_exists(std::string file_name)
 	}
 }
 
-void	replace_str(std::string s1, std::string s2, std::ifstream *in, std::ofstream *out)
+void	replace_str(std::string s1, std::string s2, std::ifstream *in, \
+std::ofstream *out)
 {
 	std::string		string;
 	size_t			s1_position;
