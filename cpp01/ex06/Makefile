@@ -6,36 +6,34 @@
 #    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/17 13:59:39 by abonnel          ###   ########.fr        #
+#    Updated: 2021/11/17 14:53:12 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.cpp Karen.cpp
+NAME		=	karenFilter
 
-OBJS	= $(SRCS:.cpp=.o)
+HEADER		=	Karen.hpp
+SRCS		=	main.cpp Karen.cpp
 
-NAME	= karenFilter
+CC			=	clang++
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 
-CC		= clang++
+OBJS		=	$(SRCS:.cpp=.o)
 
-RM		= rm -f
-
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
-
-.cpp.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
-
-$(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(SRCS) -I. -o $(NAME)
-
+$(NAME): 	$(OBJS) $(HEADER)
+			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+		
 all:		$(NAME)
 
+%.o: 		%.cpp $(HEADER)
+			$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
-			$(RM) $(OBJS)
+			rm -f $(OBJS)
 
 fclean:		clean
-			$(RM) $(NAME)
+			rm -f $(NAME)
 
 re:			fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: 	all clean fclean re

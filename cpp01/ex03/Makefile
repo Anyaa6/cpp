@@ -6,36 +6,34 @@
 #    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/12 13:58:43 by abonnel          ###   ########.fr        #
+#    Updated: 2021/11/17 14:52:54 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+NAME		=	violence
 
-OBJS	= $(SRCS:.cpp=.o)
+HEADER		=	HumanA.hpp HumanB.hpp Weapon.hpp
+SRCS		=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
-NAME	= violence
+CC			=	clang++
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 
-CC		= clang++
+OBJS		=	$(SRCS:.cpp=.o)
 
-RM		= rm -f
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+		
+all:	$(NAME)
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
-
-.cpp.o:
-			$(CC) $(CFLAGS) -c $< -o $(<:.cpp=.o)
-
-$(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(SRCS) -I. -o $(NAME)
-
-all:		$(NAME)
+%.o: %.cpp $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-			$(RM) $(OBJS)
+	rm -f $(OBJS)
 
-fclean:		clean
-			$(RM) $(NAME)
+fclean:	clean
+	rm -f $(NAME)
 
-re:			fclean all
+re:		fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re

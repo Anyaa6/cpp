@@ -3,31 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
+#    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/10 12:17:01 by ariane           ###   ########.fr        #
+#    Updated: 2021/11/17 14:39:58 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= zombies
-FLAGS		= -Werror -Wall -Wextra -std=c++98
+NAME		=	zombies
 
-SRC 		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
-OBJ 		= $(SRC:.cpp=.o)
+HEADER		=	Zombie.hpp
+SRCS		=	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 
-%.o: %.c
-	clang++ $(FLAGS) $@ -c $< -I.
+CC			=	clang++
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 
-$(NAME): $(OBJ)
-	clang++ $(FLAGS) $(OBJ) -o $(NAME)
+OBJS		=	$(SRCS:.cpp=.o)
 
-all: $(NAME)
+$(NAME): $(OBJS) $(HEADER)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+		
+all:	$(NAME)
+
+%.o: %.cpp $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
-fclean: clean
+fclean:	clean
 	rm -f $(NAME)
 
-re: fclean all
+re:		fclean all
+
+.PHONY: all clean fclean re
