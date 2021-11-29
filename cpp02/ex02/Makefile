@@ -6,14 +6,14 @@
 #    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/26 11:01:25 by ariane           ###   ########.fr        #
+#    Updated: 2021/11/26 11:14:47 by ariane           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	fixed
 
-HEADER		=	
-SRCS		=	
+HEADER		=	Fixed.hpp
+SRCS		=	main.cpp Fixed.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
