@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 11:13:12 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/01 12:24:59 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/01 12:42:43 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Fixed::Fixed(int const given_int)
 Fixed::Fixed(const float given_float)
 {
 	this->_value = 0;
-	this->_value = (round(given_float * (1 << this->_point_position)));
+	this->_value = (roundf(given_float * (1 << this->_point_position)));
 }
 
 

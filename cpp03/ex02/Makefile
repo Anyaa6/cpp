@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
+#    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/26 11:01:25 by ariane           ###   ########.fr        #
+#    Updated: 2021/12/03 15:13:49 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	FragTrap
 
-HEADER		=	
-SRCS		=	
+HEADER		=	ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
+SRCS		=	ClapTrap.cpp main.cpp  ScavTrap.cpp FragTrap.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98

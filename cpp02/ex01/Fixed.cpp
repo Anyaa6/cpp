@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 11:13:12 by ariane            #+#    #+#             */
-/*   Updated: 2021/11/29 13:39:52 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/01 12:42:43 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ Fixed::Fixed(const float given_float)
 {
     std::cout << "Float constructor called" << std::endl;
 	this->_value = 0;
-	this->_value = (round(given_float * (1 << this->_point_position)));
+	this->_value = (roundf(given_float * (1 << this->_point_position)));
 }
 
 int Fixed::toInt(void) const

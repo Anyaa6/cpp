@@ -6,14 +6,14 @@
 #    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/12/03 14:07:23 by abonnel          ###   ########.fr        #
+#    Updated: 2021/12/03 15:15:03 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	claptrap
+NAME		=	ScavTrap
 
 HEADER		=	ClapTrap.hpp ScavTrap.hpp
-SRCS		=	ClapTrap.cpp main.cpp  ScavTrap.cpp
+SRCS		=	ClapTrap.cpp main.cpp  ScavTrap.cpp 
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
