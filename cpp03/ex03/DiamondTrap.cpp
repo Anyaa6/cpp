@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 17:39:04 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/03 18:13:54 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/03 18:37:27 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <iostream>
 #include <string>
 
-DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"), _name(name)
+DiamondTrap::DiamondTrap(std::string name): ClapTrap(name + "_clap_name"),  _name(name)
 {
     std::cout << "DiamondTrap default Constructor for " << _name << std::endl;
 	_hitpoints = FragTrap::_hitpoints;
-	_energy_points = ScavTrap::_energy_points;
+	_energy_points = 50;
 	_attack_damage = FragTrap::_attack_damage;
 }
 

@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:36:17 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/03 18:06:54 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/03 18:31:55 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int main()
 	DiamondTrap Chouette("Chouette");
 	DiamondTrap Other("Other");
 	
+	std::cout << std::endl;
+	Chouette.whoAmI();
 	std::cout << std::endl;
     Alex.attack(Jean.getName());
     Jean.takeDamage(Alex.getHitPts());

@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:07:39 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/03 18:12:34 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/03 18:27:13 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,10 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap()
 {
-    std::cout << "ScavTrap default Constructor " << std::endl;    
+    std::cout << "ScavTrap default Constructor " << std::endl;
+	_hitpoints = 100;
+	_energy_points = 50;
+	_attack_damage = 20;
 }
 
 void ScavTrap::guardGate()

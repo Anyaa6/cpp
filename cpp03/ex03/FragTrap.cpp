@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/03 14:07:39 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/03 18:12:18 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/03 18:26:46 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap()
 {
-    std::cout << "FragTrap default Constructor " << std::endl;    
+    std::cout << "FragTrap default Constructor " << std::endl; 
+	_hitpoints = 100;
+	_energy_points = 100;
+	_attack_damage = 30;  
 }
 
 void FragTrap::highFivesGuys(void)
