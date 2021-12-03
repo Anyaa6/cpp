@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 15:13:20 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/03 13:38:11 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/03 14:57:01 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,16 @@ class ClapTrap
         void setDamage(int pts);
         int getDamage() const;
         
+        void setName(std::string name);
         std::string getName() const;
-        
-    private :
+    
+	protected :
         ClapTrap();
         std::string     _name;
         int             _hitpoints;
         int             _energy_points;
         int             _attack_damage;
-        
+
 };
 
 #endif
