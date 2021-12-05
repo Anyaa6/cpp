@@ -1,0 +1,12 @@
+Google C++ style syntax
+
+https://google.github.io/styleguide/cppguide.html#cpplint
+
+codecademy course for programmers
+https://www.codecademy.com/courses/c-plus-plus-for-programmers/articles/cpp-style-guide
+
+openclassroom course
+https://openclassrooms.com/fr/courses/1894236-programmez-avec-le-langage-c/1898475-decouvrez-lheritage
+
+Coursera course for pro-lvl C programmers getting into C++ with algorithm +++
+https://www.coursera.org/learn/c-plus-plus-a?ranMID=40328&ranEAID=jU79Zysihs4&ranSiteID=jU79Zysihs4-Hg0GiCsepG6F.P_n6MEW_w&siteID=jU79Zysihs4-Hg0GiCsepG6F.P_n6MEW_w&utm_content=10&utm_medium=partners&utm_source=linkshare&utm_campaign=jU79Zysihs4#syllabus
