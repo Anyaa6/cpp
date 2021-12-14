@@ -6,14 +6,14 @@
 #    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/26 11:01:25 by ariane           ###   ########.fr        #
+#    Updated: 2021/12/07 17:32:53 by ariane           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	AnimalBrains
 
-HEADER		=	
-SRCS		=	
+HEADER		=	Animal.hpp Cat.hpp Dog.hpp Brain.hpp
+SRCS		=	Animal.cpp Cat.cpp Dog.cpp Brain.cpp main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
