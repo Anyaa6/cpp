@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:44:07 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/07 17:50:33 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:46:53 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,10 @@ Dog::~Dog()
 
 void Dog::makeSound() const
 {
-    std::cout << "Dog does mia miaw" << std::endl;
+    std::cout << "Dog does waf waf" << std::endl;
+}
+
+Brain *Dog::getBrain() const
+{
+	return (_brain);
 }

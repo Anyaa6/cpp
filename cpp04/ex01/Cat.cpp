@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:44:07 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/07 17:50:16 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/14 12:49:20 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,9 @@ Cat::~Cat()
 void Cat::makeSound() const
 {
     std::cout << "Cat does mia miaw" << std::endl;
+}
+
+Brain *Cat::getBrain() const
+{
+	return (_brain);
 }

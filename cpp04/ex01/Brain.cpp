@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:27:23 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/07 17:44:34 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/14 11:48:51 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "Brain.hpp"
 
 Brain::Brain()
 {
+    for (int i = 0; i < NUMBER_OF_IDEAS; i++)
+        ideas[i] = "basic idea";
 }
 
 Brain::Brain(const Brain &to_copy)
