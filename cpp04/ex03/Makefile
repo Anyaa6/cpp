@@ -3,17 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
+#    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/26 11:01:25 by ariane           ###   ########.fr        #
+#    Updated: 2021/12/14 15:29:28 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	Materia
 
-HEADER		=	
-SRCS		=	
+HEADER		=	AMateria.hpp Ice.hpp Cure.hpp ICharacter.hpp Character.hpp\
+				IMateriaSource.hpp MateriaSource.hpp
+SRCS		=	AMateria.cpp Ice.cpp Cure.cpp Character.cpp\
+				MateriaSource.cpp main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
