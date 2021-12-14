@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 14:51:30 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/14 12:57:06 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/14 15:11:36 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#define NUMBER_OF_ANIMALS 5
+#define NUMBER_OF_AAnimalS 5
 
 int main()
 {
-	//Animal		bird; Doesn't work bc it is an abstract class
-    const Animal* 	j = new Dog();
-    const Animal* 	i = new Cat();
-	Animal			**array;
+	//AAnimal		bird; Doesn't work bc it is an abstract class
+    const AAnimal* 	j = new Dog();
+    const AAnimal* 	i = new Cat();
+	AAnimal			**array;
 	std::cout << std::endl;
 
-	//Initialize animal array, half dogs, half cats
-	array = new Animal*[NUMBER_OF_ANIMALS];
-	for (int i = 0; i < NUMBER_OF_ANIMALS; i++)
+	//Initialize AAnimal array, half dogs, half cats
+	array = new AAnimal*[NUMBER_OF_AAnimalS];
+	for (int i = 0; i < NUMBER_OF_AAnimalS; i++)
 	{
 		if (i % 2 == 0)
 			array[i] = new Dog();
@@ -35,17 +35,17 @@ int main()
 	}
 	std::cout << std::endl;
 	
-	//Show that we can get proper Sound from different animals using Animal ptr
-	for (int i = 0; i < NUMBER_OF_ANIMALS; i++)
+	//Show that we can get proper Sound from different AAnimals using AAnimal ptr
+	for (int i = 0; i < NUMBER_OF_AAnimalS; i++)
 		array[i]->makeSound();
 	std::cout << std::endl;
 
-	//Loop to delete animals array
-   	for (int i = 0; i < NUMBER_OF_ANIMALS; i++)
+	//Loop to delete AAnimals array
+   	for (int i = 0; i < NUMBER_OF_AAnimalS; i++)
 		delete array[i];
 	delete array;
     
-	//delete const animals
+	//delete const AAnimals
     std::cout << std::endl;
     delete j;
     delete i;

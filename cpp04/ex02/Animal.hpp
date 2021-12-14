@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 14:55:43 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/14 12:56:08 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/14 15:09:40 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef AAnimal_HPP
+#define AAnimal_HPP
 
 #include <string>
 
-class Animal {
+class AAnimal {
     public :
-        Animal();
-        Animal &operator=(Animal const &to_copy);
-        Animal(Animal const &to_copy);
-        virtual ~Animal();
+        AAnimal();
+        AAnimal &operator=(AAnimal const &to_copy);
+        AAnimal(AAnimal const &to_copy);
+        virtual ~AAnimal();
         virtual void makeSound() const = 0;
         std::string getType() const;
         
