@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 17:05:28 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/14 18:19:18 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 10:41:29 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,23 +37,13 @@ De même lors de la destruction d’un Character.
 
 #include <iostream>
 
-Character::Character(std::string name): _name(name)
+Character::Character(std::string name): _name(name), inventory() //inventory() set inventory to null ptrs
 {
-	for (int i = 0; i < NB_ITEMS_IN_INVENTORY; i++)
-		inventory[i] = nullptr;
 }
 
-Character::Character(Character const &to_copy): _name(to_copy._name)
+//for Character by copy, it does not have any materia on him bc he did not exist before
+Character::Character(Character const &to_copy): _name(to_copy._name), inventory()
 {
-	//delete existing materias in inventory
-	for (int i = 0; i < NB_ITEMS_IN_INVENTORY; i++)
-	{
-		if (this->inventory[i])
-			delete this->inventory[i];
-		else
-			break;
-	}
-	
 	//do deep copy
 	for (int i = 0; i < NB_ITEMS_IN_INVENTORY; i++)
 	{
@@ -132,3 +122,11 @@ Character::Character()
 	for (int i = 0; i < NB_ITEMS_IN_INVENTORY; i++)
 		inventory[i] = nullptr;
 }
+
+
+	// for (int i = 0; i < NB_ITEMS_IN_INVENTORY; i++)
+	// {
+	// 	if (inventory[i] == NULL)
+	// 		std::cout << "null inventory"<< std::endl;
+	// }
+	// 	inventory[i] = nullptr;
