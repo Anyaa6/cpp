@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:22:41 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/14 17:08:43 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 11:46:01 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <string>
 #include "AMateria.hpp"
+
+class AMateria;
 
 class ICharacter
 {

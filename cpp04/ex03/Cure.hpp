@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:30:47 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/14 17:02:26 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 11:31:47 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CURE_HPP
 
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 class Cure : public AMateria
 {
@@ -24,7 +25,7 @@ class Cure : public AMateria
 		virtual ~Cure();
 		
 		virtual Cure* clone() const;
-		//virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target);
 };
 
 #endif

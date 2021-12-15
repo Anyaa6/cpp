@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:29:23 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/15 10:39:54 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 11:48:25 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 #define NB_ITEMS_IN_INVENTORY 4
 #include <string>
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
+//Does not work if Materia is on the stack but gameplay does not work like this
 class Character : public ICharacter
 {
 	protected :
@@ -27,9 +29,9 @@ class Character : public ICharacter
 		AMateria 		*inventory[NB_ITEMS_IN_INVENTORY];
 		
 		Character(std::string name);
-		Character(Character const &to_copy); //do deep copy with new EMPTY inventory
-		Character &operator=(Character const &to_copy); //do deep copy with new EMPTY inventory
-		~Character(); //delete inventory!
+		Character(Character const &to_copy);
+		Character &operator=(Character const &to_copy);
+		~Character();
 
 		std::string const & getName() const;
 		void equip(AMateria* m);

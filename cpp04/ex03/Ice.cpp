@@ -6,10 +6,11 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:38:52 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/14 17:01:21 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 12:29:36 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Ice.hpp"
 
 Ice::Ice() : AMateria("ice")
@@ -38,7 +39,7 @@ Ice* Ice::clone() const
 	return (cloned);
 }
 
-//virtual void use(ICharacter& target);
-// {
-	// std::cout << "* shoots an ice bolt at "<< target.getName() << "*" << std::endl;
-// }
+void Ice::use(ICharacter& target)
+{
+	std::cout << "* shoots an ice bolt at "<< target.getName() << "*" << std::endl;
+}

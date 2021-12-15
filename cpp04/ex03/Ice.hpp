@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:30:26 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/14 16:53:52 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 11:31:35 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ICE_HPP
 
 #include "AMateria.hpp"
+#include "Character.hpp"
 
 class Ice : public AMateria
 {
@@ -24,7 +25,7 @@ class Ice : public AMateria
 		virtual ~Ice();
 		
 		virtual Ice* clone() const;
-		//virtual void use(ICharacter& target);
+		virtual void use(ICharacter& target);
 };
 
 #endif
