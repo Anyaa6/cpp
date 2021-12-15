@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 15:23:43 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/15 15:38:05 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 15:38:54 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ int main()
 	MateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
+	src->learnMateria(new Cure());
 
 	for (int i = 0; i < NB_ITEMS_IN_INVENTORY; i++)
 	{
@@ -31,8 +34,6 @@ int main()
 	}
 
 	ICharacter* me = new Character("me");
-	std::cout << me->getName() << std::endl;
-	
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
