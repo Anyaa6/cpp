@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 16:29:23 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/15 11:48:25 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/15 15:34:19 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-//Does not work if Materia is on the stack but gameplay does not work like this
 class Character : public ICharacter
 {
 	protected :
