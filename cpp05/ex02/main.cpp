@@ -6,7 +6,7 @@
 /*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:04:31 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/19 12:31:23 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/19 12:33:00 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ int main()
 	James.signForm(christmas);
 	James.executeForm(christmas);
 	
+	std::cout << "\nRobotomy ======" << std::endl;
+	std::cout << stupid << std::endl;
+	James.executeForm(stupid);
+	James.signForm(stupid);
+	James.executeForm(stupid);
+	
 	std::cout << "\nPresidential ======" << std::endl;
 	std::cout << pardon << std::endl;
 
@@ -40,9 +46,4 @@ int main()
 	std::cout << Paul << std::endl;
 	Paul.executeForm(pardon);
 	
-	std::cout << "\nRobotomy ======" << std::endl;
-	std::cout << stupid << std::endl;
-	James.executeForm(stupid);
-	James.signForm(stupid);
-	James.executeForm(stupid);
 }

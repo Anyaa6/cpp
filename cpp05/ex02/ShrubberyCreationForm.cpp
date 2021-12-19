@@ -6,17 +6,13 @@
 /*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 10:36:41 by ariane            #+#    #+#             */
-/*   Updated: 2021/12/19 12:30:46 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/19 12:33:45 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 #include <iostream>
 #include <fstream>
-
-/*
-Crée un fichier nommé <target>_shrubbery, et dessines des arbres en ASCII
-dedans, dans le dossier courant.*/
 
 void ShrubberyForm::execute_current_form () const
 {
