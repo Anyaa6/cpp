@@ -6,7 +6,7 @@
 /*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 16:35:08 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/19 11:11:24 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/19 11:57:31 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ Form & Form::beSigned(Bureaucrat &bureaucrat)
 		throw (Bureaucrat::GradeTooLowException());
 	_signed = true;
 	return (*this);
+}
+
+void Form::execute(Bureaucrat const & executor) const
+{
+	if (_grade_to_execute < executor.getGrade())
+		throw (GradeTooLowException());
+	execute_current_form();
 }
 
 Form::Form(int grade_execute, int grade_to_sign, std::string name): _name(name), _grade_to_execute(grade_execute), _grade_to_sign(grade_to_sign), _signed(false)

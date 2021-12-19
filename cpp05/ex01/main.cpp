@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:04:31 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/17 17:18:33 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/19 10:58:35 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,11 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << std::endl;
 	Bureaucrat		Alain(150, "Alain");
 	std::cout << Alain << std::endl;
 	Form			birth(25, 25, "birth");
+	std::cout << birth << std::endl;
 	
 	std::cout << "\nAlain tries to sign the form ==========" << std::endl;
 	try

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 15:05:00 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/17 17:08:31 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/19 11:32:12 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
 Bureaucrat::Bureaucrat(int grade, std::string name): _name(name)
 {
 	if (grade < 1)
-		throw (Bureaucrat::GradeTooHighException());
+		throw (GradeTooHighException());
 	if (grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (GradeTooLowException());
 	_grade = grade;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high");
+	return ("Bureaucrat : Grade too high");
 }
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low");
+	return ("Bureaucrat : Grade too low");
 }
 
 std::ostream & operator<<(std::ostream &cout, Bureaucrat const &bureaucrat)
@@ -53,14 +53,14 @@ void Bureaucrat::incrementGrade()
 {
 	_grade--;
 	if (_grade < 1)
-		throw (Bureaucrat::GradeTooHighException());
+		throw (GradeTooHighException());
 }
 
 void Bureaucrat::decrementGrade()
 {
 	_grade++;
 	if (_grade > 150)
-		throw (Bureaucrat::GradeTooLowException());
+		throw (GradeTooLowException());
 }
 
 void Bureaucrat::signForm(Form &form)
@@ -77,7 +77,7 @@ void Bureaucrat::signForm(Form &form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cout << _name << " cannot sign because " << e.what() << std::endl;
+		std::cout << _name << " cannot sign the Form <" << form.getName() << "> because " << e.what() << std::endl;
 	}
 }
 
