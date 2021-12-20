@@ -6,14 +6,14 @@
 #    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/12/17 16:10:05 by abonnel          ###   ########.fr        #
+#    Updated: 2021/12/17 17:23:35 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	Bureaucrat
 
-HEADER		=	Bureaucrat.hpp Form.hpp
-SRCS		=	Bureaucrat.cpp main.cpp Form.cpp 
+HEADER		=	Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+SRCS		=	Bureaucrat.cpp main.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
