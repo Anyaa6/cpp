@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
+#    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/11/26 11:01:25 by ariane           ###   ########.fr        #
+#    Updated: 2021/12/21 15:58:49 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	reinterpret
 
 HEADER		=	
-SRCS		=	
+SRCS		=	main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
