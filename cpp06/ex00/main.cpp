@@ -6,36 +6,17 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:58:39 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/23 12:12:26 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/23 15:59:51 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Ecrivez un programme qui prend en paramètre une chaîne de caractères réprésentant
-une valeur littérale de C ++ (sous sa forme la plus courante). Cette valeur doit appartenir à l’un des types scalaires suivants : char, int, float ou double. Seule la notation
-décimale sera utilisée.
-
-Exemples de valeurs littérales de char : ’c’, ’a’...
-Pour simplifier, veuillez noter que : les caractères non affichables ne peuvent pas être
-passés en paramètre à votre programme et si une conversion en char ne peut pas être
-affichée, renvoyez un message d’erreur.
-Exemples de valeurs littérales int : 0, -42, 42...
-Exemples de valeurs littérales float : 0.0f, -4.2f, 4.2f... Vous accepterez également
-ces pseudo-littéraux, vous savez, pour la science : -inff, + inff et nanf.
-Exemples de valeurs littérales double : 0.0, -4.2, 4.2... Vous accepterez également
-ces pseudo-littéraux, vous savez, pour le plaisir ... : -inf, + inf et nan.
-
-
 Votre programme doit détecter le type du littéral, acquérir ce littéral dans le bon type
 (pour que ce ne soit plus une chaîne), puis le convertir explicitement en chacun des trois
 autres types et afficher les résultats en utilisant le même formatage que ci-dessous. Si une
 conversion n’a pas de sens ou qu’elle déborde, indiquez que la conversion est impossible.
 Vous pouvez inclure n’importe quel header pour gérer les limites et les valeurs spéciales.
 */
-
-//choper peu importe le type en double
-//choper l'arg dans le bon type et ensuite utiliser le polymorphisme de fonction pour l'affichage
-//une fonction qui prend un int en param, autre double... Une fois que notre objet est typé
 
 //Pour nan inf... on peut les recuperer dans leur type correspondants,
 //pour les char : il suffit de checker si static_cast<char>(infinity) = '\0'
@@ -52,56 +33,105 @@ Vous pouvez inclure n’importe quel header pour gérer les limites et les valeu
 #include <string>
 #include <limits> //try to remove to see if it still works without it with nan inf etc
 #include <cmath> //try to remove to see if it still works without it with nan inf etc
+	
+void display(char const c, int const i, float const f, double const d)
+{
+//and then print everyone of them in a print(char c, int i, float f, double d) function
+	//for char and int if char = '\0' --> impossible pour char ET int
+	//for char if not displayable -> "not displayable"
+	//for float --> add an f at the end
+	//for double -> nothing special
+}
 
-void display(int i)
+//in convert_to_other_types(), get all var char, float, double... by a static_cast 
+//if a double value entered by user is exceeding the float value then it will return inf or -inf when doing this "casting to float : " << static_cast<float>(haha)
+void convert_to_other_types(char const c)
+{
+	std::cout << "char polymorphism : " << c << std::endl;
+	int i = static_cast<int>(c);
+	float f = static_cast<float>(c);
+	double d = static_cast<double>(c);
+	display(c, i, f, d);
+}
+
+void convert_to_other_types(int const i)
 {
 	std::cout << "Int polymorphism : " << i << std::endl;
+	char c = static_cast<char>(i);
+	float f = static_cast<float>(i);
+	double d = static_cast<double>(i);
 }
 
-void display(float i)
+void convert_to_other_types(float const f)
 {
-	std::cout << "float polymorphism : " << i << std::endl;
+	std::cout << "float polymorphism : " << f << std::endl;
+	char c = static_cast<char>(f);
+	int i = static_cast<int>(f);
+	double d = static_cast<double>(f);
 }
 
-void display(char i)
+void convert_to_other_types(double const d)
 {
-	std::cout << "char polymorphism : " << i << std::endl;
+	std::cout << "double polymorphism : " << d << std::endl;
+	char c = static_cast<char>(d);
+	int i = static_cast<int>(d);
+	float f = static_cast<float>(d);
+}
+
+void test_conversion_overflows(std::string const &arg, std::string type)
+{
+	try
+	{
+		if (type == "int")
+			std::stoi(arg);
+		else if (type == "float")
+			std::stof(arg);
+		else if (type == "double")
+			std::stod(arg);
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "Issue when converting string to " << type << " : " << e.what() << std::endl;
+		return ;
+	}
+}
+
+//function that detects type and calls directly polymorphic convert function with, as a parameter, a sto..()
+// Overflows : sto..() functions throw exceptions --> test_overflow() does try and catch
+void detects_type_and_converts(std::string const &arg)
+{
+	if (is_char())
+		convert_to_other_types(arg[0]);
+	else if (is_int())
+	{
+		test_conversion_overflows(arg, "int");
+		convert_to_other_types(stoi(arg));
+	}
+	else if (is_float()) //contient inff -inff nanf
+	{
+		test_conversion_overflows(arg, "float");
+		convert_to_other_types(stof(arg));
+	}
+	else if (is_double())//contient inf -inf nan
+	{
+		test_conversion_overflows(arg, "double");
+		convert_to_other_types(stod(arg));
+	}
+	else
+		std::cout << "Type not recognized" << std::endl;
 }
 
 int main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cout << "Need an arg" << std::endl;
+		std::cout << "You need to input ONE argument" << std::endl;
 		return 1;
 	}
+	detects_type_and_converts(argv[1]);
+}
 
-	//function that detects type and calls directly polymorphic display function with, as a parameter, a sto..()
-	//how to check wether value overlows :
-	// sto..() functions throw exceptions if out of range
-	//-> If the value read is out of the range of representable values by a long int, either an invalid_argument or an out_of_range exception is thrown.
-	//if a double value entered by user is exceeding the float value then it will return inf or -inf when doing this "casting to float : " << static_cast<float>(haha)
-		//if (int)
-		//	{
-		//		try
-		//		{
-		//			stoi(std::string(argv[1]));
-		//			display(stoi(std::string(argv[1])))
-		//		}
-		//		catch (std::exception &e)
-		//			std::cout << "Issue when converting string to int : " << e.what() << std::endl;
-		//			AND STOP THE PROGRAM THERE
-		//	}
-	//in display(), get all var char, float, double... by a static_cast : 
-	// char c = static_cast<char>(param);
-	// int i = static_cast<i>(param);
-	// double d = static_cast<d>(param);
-	// float f = static_cast<float>(param);
-	//and then print everyone of them in a print(char c, int i, float f, double d) function
-		//for char and int if char = '\0' --> impossible pour char ET int
-		//for char if not displayable -> "not displayable"
-		//for float --> add an f at the end
-		//for double -> nothing special
+
 
 		
 	/*Overflow
@@ -112,7 +142,8 @@ int main(int argc, char **argv)
 			std::cout << "Number is higher than int" <<std::endl; //will work
 		std::cout << static_cast<int>(dd) << std::endl;
 	*/
-	
+
+/*
 	float f = std::stof("45.5f");
 	void *ptr = &f;
 
@@ -135,6 +166,7 @@ int main(int argc, char **argv)
 	int *f_ptr = static_cast<int *>(ptr);
 	std::cout << *f_ptr << std::endl;
 }
+*/
 
 	//detect type, returns letter for it
 	//function that returns void*ptr based on the letter : stof stoi...
