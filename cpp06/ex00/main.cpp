@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/21 10:49:32 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/21 15:55:52 by abonnel          ###   ########.fr       */
+/*   Created: 2021/12/21 16:58:39 by abonnel           #+#    #+#             */
+/*   Updated: 2021/12/23 12:12:26 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 Ecrivez un programme qui prend en paramètre une chaîne de caractères réprésentant
 une valeur littérale de C ++ (sous sa forme la plus courante). Cette valeur doit appartenir à l’un des types scalaires suivants : char, int, float ou double. Seule la notation
 décimale sera utilisée.
+
 Exemples de valeurs littérales de char : ’c’, ’a’...
 Pour simplifier, veuillez noter que : les caractères non affichables ne peuvent pas être
 passés en paramètre à votre programme et si une conversion en char ne peut pas être
@@ -32,98 +33,137 @@ conversion n’a pas de sens ou qu’elle déborde, indiquez que la conversion e
 Vous pouvez inclure n’importe quel header pour gérer les limites et les valeurs spéciales.
 */
 
+//choper peu importe le type en double
+//choper l'arg dans le bon type et ensuite utiliser le polymorphisme de fonction pour l'affichage
+//une fonction qui prend un int en param, autre double... Une fois que notre objet est typé
+
+//Pour nan inf... on peut les recuperer dans leur type correspondants,
+//pour les char : il suffit de checker si static_cast<char>(infinity) = '\0'
+//par contre pour les int il faut avoir un flag car sinon il imprime -2147483648 a chaque fois NON, 
+//on va aussi de  baser sur le resultat du static cast en char : 
+// - si inf nan etc, apres cast en char, char = '\0' alors que n'importe quel autre int, c != '\0'
+/*
+	int a = 50000000;
+	char d = static_cast<char>(a);
+	std::cout << "d = " << d << "size of d = " << sizeof(d) << " d == '\\0' ? " << (d == '\0') << std::endl;
+*/
+
 #include <iostream>
 #include <string>
-#include <limits> //float a = std::numeric_limits<float>::infinity();
-#include <math.h> // nan inff
+#include <limits> //try to remove to see if it still works without it with nan inf etc
+#include <cmath> //try to remove to see if it still works without it with nan inf etc
 
-bool	dot_and_f(std::string const &param, int size)
+void display(int i)
 {
-	bool	dot = false;
-	bool	f = false;
-	
-	for (int i = 1; i < size; i++)
-	{
-		if (param[i] == '.')
-			dot = true;
-		if (param[i] == 'f')
-			f = true;
-	}
-	return (f && dot);
+	std::cout << "Int polymorphism : " << i << std::endl;
 }
 
-bool	dot(std::string const &param, int size)
+void display(float i)
 {
-	bool	dot = false;
-	
-	for (int i = 1; i < size; i++)
-	{
-		if (param[i] == '.')
-			dot = true;
-	}
-	return (dot);
+	std::cout << "float polymorphism : " << i << std::endl;
 }
 
-//creer une classe data avec un char un int float double, tous init a 0 et on rempli la bonne avec detect type
-char detect_type(std::string param)
+void display(char i)
 {
-	if (param == "-inff" || param == "+inff" || param == "nanf" || dot_and_f(param, param.size())) //float
-		return 'f';
-	else if (param == "-inf" || param == "+inf" || param == "nan" || dot(param, param.size())) //double
-		return 'd';
-	else if (param[0] >= 33 && param[0] <= 126) //char
-		return 'c';
-	else
-		return 'i';
+	std::cout << "char polymorphism : " << i << std::endl;
 }
 
-//STATIC
 int main(int argc, char **argv)
 {
-	char 		type;
-	float		fparam =0.0;
-
 	if (argc != 2)
 	{
-		std::cout << "You need to input 1 arf of one of those types : char, int, float ou double." << std::endl;
+		std::cout << "Need an arg" << std::endl;
 		return 1;
 	}
-	
-	std::string arg = std::string(argv[1]);
-	type = detect_type(arg);
-	if (type == 'f')
-		fparam = stof(arg);
-	
-	void *paramvoid = &fparam;
-	int *paramint = static_cast<int *>(paramvoid);
-	int intparam = static_cast<int >(fparam);
 
-	float ffff = reinterpret_cast<float>(*paramvoid);
-	std::cout << *(static_cast<float *>(paramvoid)) << std::endl;
-	std::cout << *paramint << std::endl;
-	std::cout << intparam << std::endl;
-	std::cout << *(static_cast<char *>(paramvoid)) << std::endl;
-	std::cout << *(static_cast<double *>(paramvoid)) << std::endl;
+	//function that detects type and calls directly polymorphic display function with, as a parameter, a sto..()
+	//how to check wether value overlows :
+	// sto..() functions throw exceptions if out of range
+	//-> If the value read is out of the range of representable values by a long int, either an invalid_argument or an out_of_range exception is thrown.
+	//if a double value entered by user is exceeding the float value then it will return inf or -inf when doing this "casting to float : " << static_cast<float>(haha)
+		//if (int)
+		//	{
+		//		try
+		//		{
+		//			stoi(std::string(argv[1]));
+		//			display(stoi(std::string(argv[1])))
+		//		}
+		//		catch (std::exception &e)
+		//			std::cout << "Issue when converting string to int : " << e.what() << std::endl;
+		//			AND STOP THE PROGRAM THERE
+		//	}
+	//in display(), get all var char, float, double... by a static_cast : 
+	// char c = static_cast<char>(param);
+	// int i = static_cast<i>(param);
+	// double d = static_cast<d>(param);
+	// float f = static_cast<float>(param);
+	//and then print everyone of them in a print(char c, int i, float f, double d) function
+		//for char and int if char = '\0' --> impossible pour char ET int
+		//for char if not displayable -> "not displayable"
+		//for float --> add an f at the end
+		//for double -> nothing special
 
+		
+	/*Overflow
+		double dd = std::stod("2147483648");
+
+		std::cout << dd << std::endl;
+		if (dd > std::numeric_limits<int>::max())
+			std::cout << "Number is higher than int" <<std::endl; //will work
+		std::cout << static_cast<int>(dd) << std::endl;
+	*/
 	
-	std::cout << static_cast<char >(fparam) << std::endl;
-	std::cout << static_cast<int >(fparam) << std::endl;
-	std::cout << static_cast<float >(fparam) << std::endl;
-	std::cout << static_cast<double >(fparam) << std::endl;
+	float f = std::stof("45.5f");
+	void *ptr = &f;
 
-/*	
-	f = stof(argv[1])
-	d = stod(argv[1])
-	c = argv[1][0]
-	i = stoi(argv[1])
-*/
+	display(std::stof("45.5f"));
+	display(std::stoi("1500"));
+
+	double haha = -4.40282e+38;
+	std::cout << haha << std::endl;
+	std::cout << "casting to float : " << static_cast<float>(haha) << std::endl;
+	
+	int i = 50000;
+	int z = static_cast<int>(i);
+	std::cout << "i = " << i << " z = " << z << std::endl;
+
+	double d = 45.56f;
+	z = static_cast<int>(d);
+	std::cout << "d = " << d << " z = " << z << std::endl;
+	void *i_ptr = &i;
+	
+	int *f_ptr = static_cast<int *>(ptr);
+	std::cout << *f_ptr << std::endl;
 }
 
+	//detect type, returns letter for it
+	//function that returns void*ptr based on the letter : stof stoi...
+	
+	//function that returns void * //NOAND set a char ptr to the type letter
+	
 /*
-	param = std::string(argv[1]);
-	receive = stod(param);
-	//type = detect_type(param);
-	std::cout << receive << std::endl;
-	std::cout << static_cast<float>(receive) << std::endl;
-	//std::cout << std::numeric_limits<double>::infinity() << std::endl;
+	float	infinity = atof(argv[1]);
+	std::string     infinity3 = std::string(argv[1]);
+	char c = static_cast<char>(infinity);
+	int z = 600000;
+	
+	display(c);
+	display(infinity);
+	display(z);
+	
+	std::cout << "c = " << c << "size of c = " << sizeof(c) << " c == '\\0' ? " << (c == '\0') << std::endl;
+	
+	std::cout << infinity << std::endl;
+	std::cout << static_cast<int>(infinity) << " int " << std::endl;
+	std::cout << static_cast<double>(infinity) << " double " << std::endl;
+	std::cout << static_cast<char>(infinity) << " char " << std::endl;
+	std::cout << std::stof(argv[1]) << "float " << std::endl;
+
+	
+	// double	*naaan = static_cast<double>(argv[1]);
+// 
+	// std::cout << number << std::endl;
+	// std::cout << static_cast<int>(number) << std::endl;
+	// std::cout << static_cast<char>(number) << std::endl;
+	// std::cout << static_cast<double>(number) << std::endl;
 }*/
