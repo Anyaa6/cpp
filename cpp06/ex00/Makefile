@@ -6,14 +6,14 @@
 #    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/12/21 11:22:43 by abonnel          ###   ########.fr        #
+#    Updated: 2021/12/23 16:11:23 by abonnel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	conversion
 
 HEADER		=	
-SRCS		=	main.cpp
+SRCS		=	main.cpp detect_type.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98

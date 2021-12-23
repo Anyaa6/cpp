@@ -6,7 +6,7 @@
 /*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:58:39 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/23 15:59:51 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/23 16:18:06 by abonnel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,51 +33,22 @@ Vous pouvez inclure n’importe quel header pour gérer les limites et les valeu
 #include <string>
 #include <limits> //try to remove to see if it still works without it with nan inf etc
 #include <cmath> //try to remove to see if it still works without it with nan inf etc
-	
-void display(char const c, int const i, float const f, double const d)
+#include "detect_type.cpp"
+
+void display_conversions(char const c, int const i, float const f, double const d)
 {
-//and then print everyone of them in a print(char c, int i, float f, double d) function
-	//for char and int if char = '\0' --> impossible pour char ET int
-	//for char if not displayable -> "not displayable"
-	//for float --> add an f at the end
-	//for double -> nothing special
+	if (c == '\0') //inf inff nan
+		std::cout << "char : impossible" << std::endl << "int : impossible" << std::endl;
+	else if (c < 32 || c == 127)
+		std::cout << "char : Non displayable" << std::endl << "int : " << i << std::endl;
+	else
+		std::cout << "char : " << c << std::endl << "int : " << i << std::endl;
+	std::cout << "float : " << f << "f" << std::endl;
+	std::cout << "doub;e : " << d << std::endl;
 }
 
 //in convert_to_other_types(), get all var char, float, double... by a static_cast 
 //if a double value entered by user is exceeding the float value then it will return inf or -inf when doing this "casting to float : " << static_cast<float>(haha)
-void convert_to_other_types(char const c)
-{
-	std::cout << "char polymorphism : " << c << std::endl;
-	int i = static_cast<int>(c);
-	float f = static_cast<float>(c);
-	double d = static_cast<double>(c);
-	display(c, i, f, d);
-}
-
-void convert_to_other_types(int const i)
-{
-	std::cout << "Int polymorphism : " << i << std::endl;
-	char c = static_cast<char>(i);
-	float f = static_cast<float>(i);
-	double d = static_cast<double>(i);
-}
-
-void convert_to_other_types(float const f)
-{
-	std::cout << "float polymorphism : " << f << std::endl;
-	char c = static_cast<char>(f);
-	int i = static_cast<int>(f);
-	double d = static_cast<double>(f);
-}
-
-void convert_to_other_types(double const d)
-{
-	std::cout << "double polymorphism : " << d << std::endl;
-	char c = static_cast<char>(d);
-	int i = static_cast<int>(d);
-	float f = static_cast<float>(d);
-}
-
 void test_conversion_overflows(std::string const &arg, std::string type)
 {
 	try
@@ -100,22 +71,33 @@ void test_conversion_overflows(std::string const &arg, std::string type)
 // Overflows : sto..() functions throw exceptions --> test_overflow() does try and catch
 void detects_type_and_converts(std::string const &arg)
 {
+	char		c;
+	int			i;
+	float		f;
+	double		d;
+	
 	if (is_char())
-		convert_to_other_types(arg[0]);
+	{
+		c = arg[0];
+		display_conversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c))
+	}
 	else if (is_int())
 	{
 		test_conversion_overflows(arg, "int");
-		convert_to_other_types(stoi(arg));
+		i = std::stoi(arg);
+		display_conversions(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(d))
 	}
 	else if (is_float()) //contient inff -inff nanf
 	{
 		test_conversion_overflows(arg, "float");
-		convert_to_other_types(stof(arg));
+		f = std::stof(arg);
+		display_conversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f))
 	}
 	else if (is_double())//contient inf -inf nan
 	{
 		test_conversion_overflows(arg, "double");
-		convert_to_other_types(stod(arg));
+		d = std::stod(arg);
+		display_conversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d)
 	}
 	else
 		std::cout << "Type not recognized" << std::endl;
@@ -199,3 +181,39 @@ int main(int argc, char **argv)
 	// std::cout << static_cast<char>(number) << std::endl;
 	// std::cout << static_cast<double>(number) << std::endl;
 }*/
+
+/*
+
+void convert_to_other_types(char const c)
+{
+	std::cout << "char polymorphism : " << c << std::endl;
+	int i = static_cast<int>(c);
+	float f = static_cast<float>(c);
+	double d = static_cast<double>(c);
+	display(c, i, f, d);
+}
+
+void convert_to_other_types(int const i)
+{
+	std::cout << "Int polymorphism : " << i << std::endl;
+	char c = static_cast<char>(i);
+	float f = static_cast<float>(i);
+	double d = static_cast<double>(i);
+}
+
+void convert_to_other_types(float const f)
+{
+	std::cout << "float polymorphism : " << f << std::endl;
+	char c = static_cast<char>(f);
+	int i = static_cast<int>(f);
+	double d = static_cast<double>(f);
+}
+
+void convert_to_other_types(double const d)
+{
+	std::cout << "double polymorphism : " << d << std::endl;
+	char c = static_cast<char>(d);
+	int i = static_cast<int>(d);
+	float f = static_cast<float>(d);
+}
+*/
