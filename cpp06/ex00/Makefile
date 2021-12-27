@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+         #
+#    By: ariane <ariane@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/10 12:12:46 by ariane            #+#    #+#              #
-#    Updated: 2021/12/23 16:11:23 by abonnel          ###   ########.fr        #
+#    Updated: 2021/12/27 13:21:05 by ariane           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	conversion
 
-HEADER		=	
-SRCS		=	main.cpp detect_type.cpp
+HEADER		=	detect_type.hpp
+SRCS		=	detect_type.cpp main.cpp
 
 CC			=	clang++
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98
+CFLAGS		=	-Wall -Wextra -std=c++98
 
 OBJS		=	$(SRCS:.cpp=.o)
 

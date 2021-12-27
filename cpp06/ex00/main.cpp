@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abonnel <abonnel@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:58:39 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/23 16:18:06 by abonnel          ###   ########.fr       */
+/*   Updated: 2021/12/27 13:43:55 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+//NE PAS OUBLIER DE RAJOUTER FLAG WERROR AU MAKEFILE
+
 /*
-Votre programme doit détecter le type du littéral, acquérir ce littéral dans le bon type
-(pour que ce ne soit plus une chaîne), puis le convertir explicitement en chacun des trois
-autres types et afficher les résultats en utilisant le même formatage que ci-dessous. Si une
+afficher les résultats en utilisant le même formatage que ci-dessous. Si une
 conversion n’a pas de sens ou qu’elle déborde, indiquez que la conversion est impossible.
 Vous pouvez inclure n’importe quel header pour gérer les limites et les valeurs spéciales.
 */
@@ -33,8 +33,10 @@ Vous pouvez inclure n’importe quel header pour gérer les limites et les valeu
 #include <string>
 #include <limits> //try to remove to see if it still works without it with nan inf etc
 #include <cmath> //try to remove to see if it still works without it with nan inf etc
-#include "detect_type.cpp"
+#include "detect_type.hpp"
 
+//rajouter set precision pour que meme si float n'a pas de partie decimale, s'affiche bien
+//avec .xxxx
 void display_conversions(char const c, int const i, float const f, double const d)
 {
 	if (c == '\0') //inf inff nan
@@ -42,13 +44,11 @@ void display_conversions(char const c, int const i, float const f, double const 
 	else if (c < 32 || c == 127)
 		std::cout << "char : Non displayable" << std::endl << "int : " << i << std::endl;
 	else
-		std::cout << "char : " << c << std::endl << "int : " << i << std::endl;
+		std::cout << "char : '" << c << "'" << std::endl << "int : " << i << std::endl;
 	std::cout << "float : " << f << "f" << std::endl;
-	std::cout << "doub;e : " << d << std::endl;
+	std::cout << "double : " << d << std::endl;
 }
 
-//in convert_to_other_types(), get all var char, float, double... by a static_cast 
-//if a double value entered by user is exceeding the float value then it will return inf or -inf when doing this "casting to float : " << static_cast<float>(haha)
 void test_conversion_overflows(std::string const &arg, std::string type)
 {
 	try
@@ -63,12 +63,10 @@ void test_conversion_overflows(std::string const &arg, std::string type)
 	catch(const std::exception& e)
 	{
 		std::cout << "Issue when converting string to " << type << " : " << e.what() << std::endl;
-		return ;
+		exit(1);
 	}
 }
 
-//function that detects type and calls directly polymorphic convert function with, as a parameter, a sto..()
-// Overflows : sto..() functions throw exceptions --> test_overflow() does try and catch
 void detects_type_and_converts(std::string const &arg)
 {
 	char		c;
@@ -76,28 +74,32 @@ void detects_type_and_converts(std::string const &arg)
 	float		f;
 	double		d;
 	
-	if (is_char())
+	if (is_char(arg))
 	{
+		std::cout << "Char detected" << std::endl;
 		c = arg[0];
-		display_conversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c))
+		display_conversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c));
 	}
-	else if (is_int())
+	else if (is_int(arg))
 	{
+		std::cout << "Int detected" << std::endl;
 		test_conversion_overflows(arg, "int");
 		i = std::stoi(arg);
-		display_conversions(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(d))
+		display_conversions(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i));
 	}
-	else if (is_float()) //contient inff -inff nanf
+	else if (is_float(arg))
 	{
+		std::cout << "Float detected" << std::endl;
 		test_conversion_overflows(arg, "float");
 		f = std::stof(arg);
-		display_conversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f))
+		display_conversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f));
 	}
-	else if (is_double())//contient inf -inf nan
+	else if (is_double(arg))//contient inf -inf nan
 	{
+		std::cout << "Double detected" << std::endl;
 		test_conversion_overflows(arg, "double");
 		d = std::stod(arg);
-		display_conversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d)
+		display_conversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d);
 	}
 	else
 		std::cout << "Type not recognized" << std::endl;
@@ -111,11 +113,10 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	detects_type_and_converts(argv[1]);
+
 }
 
 
-
-		
 	/*Overflow
 		double dd = std::stod("2147483648");
 
