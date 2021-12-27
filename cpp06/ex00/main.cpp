@@ -6,7 +6,7 @@
 /*   By: ariane <ariane@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/21 16:58:39 by abonnel           #+#    #+#             */
-/*   Updated: 2021/12/27 14:09:41 by ariane           ###   ########.fr       */
+/*   Updated: 2021/12/27 14:16:15 by ariane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,27 +54,23 @@ void detects_type_and_converts(std::string const &arg)
 	
 	if (is_char(arg))
 	{
-		std::cout << "Char detected" << std::endl;
 		c = arg[0];
 		display_conversions(c, static_cast<int>(c), static_cast<float>(c), static_cast<double>(c));
 	}
 	else if (is_int(arg))
 	{
-		std::cout << "Int detected" << std::endl;
 		test_conversion_overflows(arg, "int");
 		i = std::stoi(arg);
 		display_conversions(static_cast<char>(i), i, static_cast<float>(i), static_cast<double>(i));
 	}
 	else if (is_float(arg))
 	{
-		std::cout << "Float detected" << std::endl;
 		test_conversion_overflows(arg, "float");
 		f = std::stof(arg);
 		display_conversions(static_cast<char>(f), static_cast<int>(f), f, static_cast<double>(f));
 	}
 	else if (is_double(arg))//contient inf -inf nan
 	{
-		std::cout << "Double detected" << std::endl;
 		test_conversion_overflows(arg, "double");
 		d = std::stod(arg);
 		display_conversions(static_cast<char>(d), static_cast<int>(d), static_cast<float>(d), d);
