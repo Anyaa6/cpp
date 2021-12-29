@@ -17,14 +17,7 @@ template <typename T>
 void iter(T *array, int length, void (*fun)(T &array_element))
 {
 	for (int i = 0; i < length; i++)
-	{
-		std::cout << "array[" << i << "] = " << array[i] << std::endl;
 		fun(array[i]);
-		std::cout << "array[" << i << "] = " << array[i] << std::endl;
-		std::cout << std::endl;
-	}
 }
-
-//void iter(int *array, )
 
 #endif //CPP07_ITER_HPP
