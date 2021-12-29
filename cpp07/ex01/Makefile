@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	iter
 
-HEADER		=	
-SRCS		=	
+HEADER		=	iter.hpp
+SRCS		=	main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
