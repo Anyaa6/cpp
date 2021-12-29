@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	whatever
 
-HEADER		=	
-SRCS		=	
+HEADER		=	whatever.hpp
+SRCS		=	main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
