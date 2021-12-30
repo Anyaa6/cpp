@@ -7,4 +7,4 @@ include_directories(.)
 include_directories(ex00)
 
 add_executable(cpp07
-        ex00/whatever.hpp ex00/main.cpp ex02/main.cpp)
+        ex00/whatever.hpp ex00/main.cpp ex02/main.cpp ex01/iter.hpp ex01/main.cpp)

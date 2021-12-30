@@ -86,6 +86,13 @@ build CMakeFiles/cpp07.dir/ex02/main.cpp.o: CXX_COMPILER__cpp07_Debug /Users/ari
   OBJECT_DIR = CMakeFiles/cpp07.dir
   OBJECT_FILE_DIR = CMakeFiles/cpp07.dir/ex02
 
+build CMakeFiles/cpp07.dir/ex01/main.cpp.o: CXX_COMPILER__cpp07_Debug /Users/ariane/Documents/42cursus/cpp/cpp07/ex01/main.cpp || cmake_object_order_depends_target_cpp07
+  DEP_FILE = CMakeFiles/cpp07.dir/ex01/main.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++14
+  INCLUDES = -I/Users/ariane/Documents/42cursus/cpp/cpp07/. -I/Users/ariane/Documents/42cursus/cpp/cpp07/ex00
+  OBJECT_DIR = CMakeFiles/cpp07.dir
+  OBJECT_FILE_DIR = CMakeFiles/cpp07.dir/ex01
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cpp07
@@ -94,7 +101,7 @@ build CMakeFiles/cpp07.dir/ex02/main.cpp.o: CXX_COMPILER__cpp07_Debug /Users/ari
 #############################################
 # Link the executable cpp07
 
-build cpp07: CXX_EXECUTABLE_LINKER__cpp07_Debug CMakeFiles/cpp07.dir/ex00/main.cpp.o CMakeFiles/cpp07.dir/ex02/main.cpp.o
+build cpp07: CXX_EXECUTABLE_LINKER__cpp07_Debug CMakeFiles/cpp07.dir/ex00/main.cpp.o CMakeFiles/cpp07.dir/ex02/main.cpp.o CMakeFiles/cpp07.dir/ex01/main.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
   OBJECT_DIR = CMakeFiles/cpp07.dir
   POST_BUILD = :
