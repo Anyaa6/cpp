@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	Array
 
-HEADER		=	
-SRCS		=	
+HEADER		=	Array.hpp
+SRCS		=	main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98

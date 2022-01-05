@@ -6,40 +6,61 @@
 #define CPP07_ARRAY_HPP
 
 /*
- * Write a class template Array that contains elements of type T and that allows the
-following behavior:
-• Construction with no parameter: creates an empty array.
-• Construction with an unsigned int n as a parameter: creates an array of n elements, initialized by default. (Tip: try to compile int * a = new int();, then
-display *a.)
-• Construction by copy and assignment operator. In both cases, modifying one of
-the two arrays after copy/assignment won’t affect anything in the other array. DEEP COPY
-• You MUST use the operator new[] for your allocation. You must not do preventive
-allocation. Your code must never access non allocated memory.
-• Elements are accessible through the operator[].
-• When accessing an element with the operator[], if this element is out of the limits,
-a std::exception is thrown.
-• A member function size that returns the number of elements in the array. This
-member function takes no parameter and does not modify the current instance in
-any way.
-Wrap your work into an executable that proves that your class template works as
-intended.
+Your code must never access non allocated memory.
  */
+
+#include <stdexcept>
 
 template<typename T>
 class Array {
 public :
 	Array<T>();
-	Array<T>(unsigned int n);
+	explicit Array<T>(unsigned int n);
 	~Array<T>();
-	Array<T>(Array<T> const &to_copy);
-	Array<T> &operator=(Array<T> const &to_copy);
+	//below DEEP COPIES
+	//Array<T>(Array<T> const &to_copy);
+	//Array<T> &operator=(Array<T> const &to_copy);
 	T &operator[](int index);
-
-	unsigned int size() const;
+	const unsigned int & getSize() const;
 
 private:
 	unsigned int _size;
 	int *_array;
 };
+
+/*
+ * DECLARATION
+ */
+
+template<typename T>
+Array<T>::Array() {
+	_size = 0;
+	_array = nullptr; //or new T[1] and array[0] = 0 ? "creates an empty array"
+}
+
+template<typename T>
+Array<T>::~Array<T>() {
+	if (_array)
+		delete [] _array;
+}
+
+template<typename T>
+Array<T>::Array(unsigned int n) : _size(n) {
+	_array = new T[_size]();
+}
+
+template<typename T>
+T &Array<T>::operator[](int index) {
+	//static_cast ok car un int negatif rentrera forcement dans un unsigned
+	//condition index < 0 car cast d'un int negatif en unsigned est trop aleatoire
+	if (index < 0 || static_cast<unsigned int>(index) >= _size)
+		throw std::out_of_range("Index is out of range");
+	return _array[index];
+}
+
+template<typename T>
+const unsigned int & Array<T>::getSize() const {
+	return _size;
+}
 
 #endif //CPP07_ARRAY_HPP
