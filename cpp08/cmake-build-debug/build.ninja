@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: cpp07
+# Project: cpp08
 # Configurations: Debug
 # =============================================================================
 
@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/ariane/Documents/42cursus/cpp/cpp07/cmake-build-debug/
+cmake_ninja_workdir = /Users/ariane/Documents/42cursus/cpp/cpp08/cmake-build-debug/
 
 #############################################
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/ariane/Documents/42cursus/cpp/cpp07/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/ariane/Documents/42cursus/cpp/cpp07 -B/Users/ariane/Documents/42cursus/cpp/cpp07/cmake-build-debug
+  COMMAND = cd /Users/ariane/Documents/42cursus/cpp/cpp08/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake --regenerate-during-build -S/Users/ariane/Documents/42cursus/cpp/cpp08 -B/Users/ariane/Documents/42cursus/cpp/cpp08/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -57,57 +57,48 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /Users/ariane/Documents/42cursus/cpp/cpp07/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /Users/ariane/Documents/42cursus/cpp/cpp08/cmake-build-debug && /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
 build edit_cache: phony CMakeFiles/edit_cache.util
 
 # =============================================================================
-# Object build statements for EXECUTABLE target cpp07
+# Object build statements for EXECUTABLE target cpp08
 
 
 #############################################
-# Order-only phony target for cpp07
+# Order-only phony target for cpp08
 
-build cmake_object_order_depends_target_cpp07: phony || CMakeFiles/cpp07.dir
+build cmake_object_order_depends_target_cpp08: phony || CMakeFiles/cpp08.dir
 
-build CMakeFiles/cpp07.dir/ex00/main.cpp.o: CXX_COMPILER__cpp07_Debug /Users/ariane/Documents/42cursus/cpp/cpp07/ex00/main.cpp || cmake_object_order_depends_target_cpp07
-  DEP_FILE = CMakeFiles/cpp07.dir/ex00/main.cpp.o.d
+build CMakeFiles/cpp08.dir/ex00/main.cpp.o: CXX_COMPILER__cpp08_Debug /Users/ariane/Documents/42cursus/cpp/cpp08/ex00/main.cpp || cmake_object_order_depends_target_cpp08
+  DEP_FILE = CMakeFiles/cpp08.dir/ex00/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++14
-  INCLUDES = -I/Users/ariane/Documents/42cursus/cpp/cpp07/. -I/Users/ariane/Documents/42cursus/cpp/cpp07/ex00
-  OBJECT_DIR = CMakeFiles/cpp07.dir
-  OBJECT_FILE_DIR = CMakeFiles/cpp07.dir/ex00
+  OBJECT_DIR = CMakeFiles/cpp08.dir
+  OBJECT_FILE_DIR = CMakeFiles/cpp08.dir/ex00
 
-build CMakeFiles/cpp07.dir/ex02/main.cpp.o: CXX_COMPILER__cpp07_Debug /Users/ariane/Documents/42cursus/cpp/cpp07/ex02/main.cpp || cmake_object_order_depends_target_cpp07
-  DEP_FILE = CMakeFiles/cpp07.dir/ex02/main.cpp.o.d
+build CMakeFiles/cpp08.dir/ex02/main.cpp.o: CXX_COMPILER__cpp08_Debug /Users/ariane/Documents/42cursus/cpp/cpp08/ex02/main.cpp || cmake_object_order_depends_target_cpp08
+  DEP_FILE = CMakeFiles/cpp08.dir/ex02/main.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++14
-  INCLUDES = -I/Users/ariane/Documents/42cursus/cpp/cpp07/. -I/Users/ariane/Documents/42cursus/cpp/cpp07/ex00
-  OBJECT_DIR = CMakeFiles/cpp07.dir
-  OBJECT_FILE_DIR = CMakeFiles/cpp07.dir/ex02
-
-build CMakeFiles/cpp07.dir/ex01/main.cpp.o: CXX_COMPILER__cpp07_Debug /Users/ariane/Documents/42cursus/cpp/cpp07/ex01/main.cpp || cmake_object_order_depends_target_cpp07
-  DEP_FILE = CMakeFiles/cpp07.dir/ex01/main.cpp.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++14
-  INCLUDES = -I/Users/ariane/Documents/42cursus/cpp/cpp07/. -I/Users/ariane/Documents/42cursus/cpp/cpp07/ex00
-  OBJECT_DIR = CMakeFiles/cpp07.dir
-  OBJECT_FILE_DIR = CMakeFiles/cpp07.dir/ex01
+  OBJECT_DIR = CMakeFiles/cpp08.dir
+  OBJECT_FILE_DIR = CMakeFiles/cpp08.dir/ex02
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target cpp07
+# Link build statements for EXECUTABLE target cpp08
 
 
 #############################################
-# Link the executable cpp07
+# Link the executable cpp08
 
-build cpp07: CXX_EXECUTABLE_LINKER__cpp07_Debug CMakeFiles/cpp07.dir/ex00/main.cpp.o CMakeFiles/cpp07.dir/ex02/main.cpp.o CMakeFiles/cpp07.dir/ex01/main.cpp.o
+build cpp08: CXX_EXECUTABLE_LINKER__cpp08_Debug CMakeFiles/cpp08.dir/ex00/main.cpp.o CMakeFiles/cpp08.dir/ex02/main.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
-  OBJECT_DIR = CMakeFiles/cpp07.dir
+  OBJECT_DIR = CMakeFiles/cpp08.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = cpp07
-  TARGET_PDB = cpp07.dbg
+  TARGET_FILE = cpp08
+  TARGET_PDB = cpp08.dbg
 
 # =============================================================================
 # Target aliases.
@@ -118,9 +109,9 @@ build cpp07: CXX_EXECUTABLE_LINKER__cpp07_Debug CMakeFiles/cpp07.dir/ex00/main.c
 # =============================================================================
 
 #############################################
-# Folder: /Users/ariane/Documents/42cursus/cpp/cpp07/cmake-build-debug
+# Folder: /Users/ariane/Documents/42cursus/cpp/cpp08/cmake-build-debug
 
-build all: phony cpp07
+build all: phony cpp08
 
 # =============================================================================
 # Built-in targets

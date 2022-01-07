@@ -7,6 +7,7 @@
 
 #include <stdexcept>
 
+//replace typename by "class" ??
 template<typename T>
 class Array {
 public :

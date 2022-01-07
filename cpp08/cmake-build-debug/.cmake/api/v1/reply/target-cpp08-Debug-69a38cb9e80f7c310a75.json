@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "cpp07"
+			"path" : "cpp08"
 		}
 	],
 	"backtrace" : 1,
@@ -10,8 +10,7 @@
 	{
 		"commands" : 
 		[
-			"add_executable",
-			"include_directories"
+			"add_executable"
 		],
 		"files" : 
 		[
@@ -25,19 +24,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 9,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
 				"line" : 6,
-				"parent" : 0
-			},
-			{
-				"command" : 1,
-				"file" : 0,
-				"line" : 7,
 				"parent" : 0
 			}
 		]
@@ -54,17 +41,6 @@
 					"fragment" : "-std=gnu++14"
 				}
 			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"path" : "/Users/ariane/Documents/42cursus/cpp/cpp07/."
-				},
-				{
-					"backtrace" : 3,
-					"path" : "/Users/ariane/Documents/42cursus/cpp/cpp07/ex00"
-				}
-			],
 			"language" : "CXX",
 			"languageStandard" : 
 			{
@@ -76,14 +52,12 @@
 			},
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				4,
-				6
+				0,
+				2
 			]
 		}
 	],
-	"id" : "cpp07::@6890427a1f51a3e7e1df",
+	"id" : "cpp08::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -99,8 +73,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "cpp07",
-	"nameOnDisk" : "cpp07",
+	"name" : "cpp08",
+	"nameOnDisk" : "cpp08",
 	"paths" : 
 	{
 		"build" : ".",
@@ -109,22 +83,18 @@
 	"sourceGroups" : 
 	[
 		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
-				0,
-				3,
-				5
-			]
-		},
-		{
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				1,
-				2,
-				4,
-				6
+				0,
+				2
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				1
 			]
 		}
 	],
@@ -132,42 +102,20 @@
 	[
 		{
 			"backtrace" : 1,
-			"path" : "ex00/whatever.hpp",
+			"compileGroupIndex" : 0,
+			"path" : "ex00/main.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "ex00/main.cpp",
+			"path" : "ex00/easyfind.hpp",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "ex02/main.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "ex01/iter.hpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "ex01/main.cpp",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "ex02/Array.hpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "ex02/Array.cpp",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"
