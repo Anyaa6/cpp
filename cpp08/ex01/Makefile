@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	Span
 
-HEADER		=	
-SRCS		=	
+HEADER		=	Span.hpp
+SRCS		=	Span.cpp main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
