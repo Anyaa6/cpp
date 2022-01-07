@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	easyfind
 
-HEADER		=	
-SRCS		=	
+HEADER		=	easyfind.hpp
+SRCS		=	main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
