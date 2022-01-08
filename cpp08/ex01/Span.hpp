@@ -14,12 +14,16 @@ public :
 	Span &operator=(Span const &to_copy);
 	virtual ~Span();
 
+	//getter
 	unsigned int const & getSize() const;
 
-	//sort needed at entry of shortest and longestSpan
-	int shortestSpan() const;
-	int longestSpan() const;
+	//allows to get iterator to private _array
+	std::vector<int>::iterator begin();
+	std::vector<int>::iterator end();
 
+	//sort needed at entry of shortest and longestSpan
+	int shortestSpan();
+	int longestSpan();
 	void addNumber(int value); //should say no if already full, do NOT sort
 
 	//add numbers by passing a range of iterators

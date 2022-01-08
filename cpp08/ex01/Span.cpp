@@ -4,10 +4,11 @@
 
 #include "Span.hpp"
 #include <vector>
+#include <iterator>
+#include <algorithm>
+#include <limits>
 
-#include <iostream>//a enlever
 /*
- *
  * Constructors, Destructors, Getters
  */
 Span::Span(unsigned int N) : _fixedSize(N) {
@@ -41,19 +42,35 @@ void Span::addNumber(int value) {
 	_array.push_back(value);
 }
 
-//Need to finish longest and shortest span
-int Span::longestSpan() const {
+int Span::longestSpan() {
 	if (_array.size() < 2)
 		throw (Span::NotEnoughValues());
-//	std::sort(_array.begin(), _array.end());
-	return (0);
+	std::sort(_array.begin(), _array.end());
+	return (*(--_array.end()) - *_array.begin());
 }
 
-int Span::shortestSpan() const {
+int Span::shortestSpan(){
 	if (_array.size() < 2)
 		throw (Span::NotEnoughValues());
-	//if adjacent_find != _array.end() --> return 0
-	return 0;
+	std::sort(_array.begin(), _array.end());
+	if (std::adjacent_find(_array.begin(), _array.end()) != _array.end())
+		return 0;
+
+	int 	span = std::numeric_limits<int>::max();
+	for (std::vector<int>::iterator it = _array.begin(); it < --_array.end(); it++)
+	{
+		if (*std::next(it) - *it < span)
+			span = *std::next(it) - *it;
+	}
+	return span;
+}
+
+std::vector<int>::iterator Span::begin() {
+	return _array.begin();
+}
+
+std::vector<int>::iterator Span::end() {
+	return _array.end();
 }
 
 const char *Span::NotEnoughValues::what() const throw() {
