@@ -10,10 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	
+NAME		=	mutantstack
 
-HEADER		=	
-SRCS		=	
+HEADER		=	Mutantstack.hpp
+SRCS		=	Mutantstack.cpp main.cpp
 
 CC			=	clang++
 CFLAGS		=	-Wall -Werror -Wextra -std=c++98
